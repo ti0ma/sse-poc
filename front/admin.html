@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<button onclick="play()">Play</button>
+<button onclick="pause()">Pause</button>
+<button onclick="stop()">Stop</button>
+
+<script type="text/javascript">
+var base = {
+  current: 'none',
+  track: 1,
+  time: 0
+};
+
+function send(type) {
+  $.post('http://localhost:9000/status', $.extend(base, {
+    current: type
+  }), function(data) {
+    console.log(data);
+  });
+}
+
+function play() {
+  send('play');
+}
+
+function pause() {
+  send('pause');
+}
+
+function stop() {
+  send('stop');
+}
+</script>
+</body>
+</html>
