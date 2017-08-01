@@ -2,11 +2,11 @@
 
 Run `npm install` in both folders
 
-##server
-npm start
+## server
+`npm start`
 
-##front
-npm run dev
+## front
+`npm run dev`
 
 - Go to http://localhost:3000/ and leave as many tabs open as you want (even in your phone, tablet, etc changing localhost with the ip)
 - Go to http://localhost:3000/admin.html in another tab
