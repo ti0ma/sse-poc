@@ -2,16 +2,29 @@
 <html>
 <head>
   <title>Cliente</title>
+  <!-- Only for test purposes, i swear... -->
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <style type="text/css">
+    .play {
+      background-color: red;
+    }
+    .pause {
+      background-color: blue;
+    }
+    .stop {
+      background-color: yellow;
+    }
+  </style>
 </head>
 <body>
 <h1 id="status"></h1>
 <script>
-var source = new EventSource('http://192.168.0.11:9000/stream');
+var source = new EventSource('http://' + window.location.hostname + ':9000/stream');
 
 source.addEventListener('message', function(evt) {
   var data = JSON.parse(evt.data);
   $("#status").text(data.current);
+  $("body").attr('class', data.current);
 }, false);
 
  source.addEventListener('open', function(e) {
